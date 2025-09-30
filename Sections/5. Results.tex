@@ -1,0 +1,52 @@
+\section{Results}
+\subsection{Observations}
+In this section, display the data that you have obtained.
+
+\begin{table}[!h]
+    \centering
+    \rowcolors{2}{UM-blue!10}{white}
+    \caption{A table without vertical lines.}
+    \begin{tabular}{ccccc}
+        \toprule
+        \tbluebf{Column 1}&\tbluebf{Column 2}&\tbluebf{Column 3}&\tbluebf{Column 4}&\tbluebf{Column 5}\\
+        \midrule
+            Entry 1&1&2&3&4\\
+            Entry 2&1&2&3&4\\
+            Entry 3&1&2&3&4\\
+            Entry 4&1&2&3&4\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:5.1}
+\end{table}
+
+\subsection{Data Analysis}
+In this section, display any relevant figures, tables or equations after you have analysed them.
+
+\begin{table}[!h]
+    \centering
+    \rowcolors{2}{UM-blue!10}{white}
+    \caption{A table with vertical lines.}
+    \begin{tabular}{c|cccc}
+        \toprule
+        \tbluebf{Column 1}&\tbluebf{Column 2}&\tbluebf{Column 3}&\tbluebf{Column 4}
+        &\tbluebf{Column 5}\\
+        \midrule
+            Entry 1&1&2&3&4\\
+            Entry 2&1&2&3&4\\
+            Entry 3&1&2&3&4\\
+            Entry 4&1&2&3&4\\
+        \bottomrule
+    \end{tabular}
+    \label{tab:5.2}
+\end{table}
+
+\noindent \verb|Block| equations are automatically coloured blue, however \verb|inline| equations are not because it will mess up some paragraph spacing.
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t} \Psi(\mathbf{r}, t) = \hat{H} \Psi(\mathbf{r}, t)
+\end{equation}
+
+\noindent You can also create a blue horizontal line using \verb|\lblue|.
+
+\noindent \lblue
+
+\newpage

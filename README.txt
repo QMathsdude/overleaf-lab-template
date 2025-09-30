@@ -1,5 +1,5 @@
 ------------------------------------------------
-Title: Universiti Malaya Unofficial LaTeX Physics Lab Report Template
+Title: Universiti Malaya Unofficial Lab Report Template
 Author: Errol Tay
 ------------------------------------------------
 

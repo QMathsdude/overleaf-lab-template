@@ -1,0 +1,52 @@
+\begin{titlepage}
+
+% Set front page font to Computer Modern
+{\fontfamily{cmr}\selectfont
+
+\centering
+
+% Graphics (Top)
+\tikz[remember picture,overlay,opacity=0.15]\node[anchor=north,inner sep=0pt] at (current page.north) {\includegraphics[width=\paperwidth]{Figures/Logo/UM-building.jpg}}; % Background
+\includegraphics[width=0.15\textwidth]{Figures/Logo/UM.png} % University logo
+
+\Large \textbf{Universiti Malaya}\\
+\large Faculty of Science\\
+\large Department of Physics\\
+
+\vspace{2cm}
+
+% Information
+{\Large XXX0000 - Course Title}\\[5pt]
+{\Large  Laboratory Report \reportnumber}\\[15pt]
+\textit{\textbf{\LARGE\reporttitle}}\\[5pt]
+\vspace{0.1cm}
+\hrule
+
+\vspace{1cm}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{c p{3cm} c}
+        \textbf{\large Student Name} & & \textbf{\large Matric Number}\\[5pt]
+         \large \studentname & & \large \matricnumber\\
+    \end{tabular}
+\end{table}
+
+\vspace{15pt}
+
+\textbf {\large Lecturer(s) in charge:}\\[0.2cm]
+\large {\firstlecturername}\\
+\large {\secondlecturername}\\
+
+\vspace{3cm}
+
+\reportdate
+
+}
+
+
+
+\tikz[remember picture,overlay,opacity=0.25]\node[anchor=south,inner sep=0pt] at (current page.south) {\includegraphics[width=\paperwidth]{Figures/Logo/blue-building.jpg}};
+
+    
+\end{titlepage}

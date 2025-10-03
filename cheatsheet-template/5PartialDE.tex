@@ -1,0 +1,38 @@
+\section{Partial Differential Equation}
+\subsection{Second Order ODE Refresher}
+To solve equations of the form $\displaystyle a\frac{d^2y}{dx^2}+b\frac{dy}{dx}+cy=0$, write out the characteristic equation $\displaystyle am^2+bm+c=0$ and find its roots:
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{2.2}
+    \caption{Solutions to $2^\text{nd}$ Order ODE with characteristic equation: $\mathbf{am^2+bm+c=0}$}
+    \label{table:5.1}
+    \begin{tabular}{|c|c|c|}\hline
+       Case.&Roots of Characteristic Equation&General Solutions\\\hline
+       1.&$m_1\text{ and }m_2:$ real and distinct&$y=A\e{m_1x}+B\e{m_2x}$\\\hline
+       2.&$m_1\text{ and }m_2:$ real and equal&$y=\bracket{A+Bx}\e{mx}$\\
+        &$m=m_1=m_2$& \\\hline
+       3.&$m_1\text{ and }m_2:$ complex& $y=\e{\alpha x}\bracket{A\cos\beta x+B\sin \beta x}$\\
+        &$m_1=\alpha+\beta i,\quad m_2=\alpha-\beta i$& \\\hline
+    \end{tabular}
+\end{table}
+\noindent \noindent Meanwhile for equations of the form $\displaystyle \frac{d^2y}{dx^2}\pm n^2y=0$, characteristic equation becomes: $\mathbf{am^2+c=0}$. There are two situations:
+\begin{enumerate}[i.]
+    \item $\displaystyle \frac{d^2y}{dx^2}+n^2y=0:$
+    \begin{align}
+        &\text{Characteristic: }m^2+n^2=0\Longrightarrow m=\pm in\nonumber\\
+        &\textbf{Solution: }y=A\cos nx+B\sin nx
+    \end{align}
+    \item $\displaystyle \frac{d^2y}{dx^2}-n^2y=0:$
+    \begin{align}
+        &\text{Characteristic: }m^2-n^2=0\Longrightarrow m=\pm n\nonumber\\
+        &\textbf{Solution: }\begin{cases}
+            y&=A\cosh nx+B\sinh nx\\
+            y&=A\e{nx}+B\e{-nx}\\
+            y&=A\sinh{n\bracket{x+\phi}}
+        \end{cases}
+    \end{align}
+    \begin{center}
+        where $A,B,\phi$ are arbitrary constants
+    \end{center}
+\end{enumerate}
+\subsection{Solution by Direct Integration}

@@ -1,0 +1,349 @@
+\section{Laplace Transforms}
+The Laplace transform (one-to-one function) is an integral that transforms real variable function $\f{t}$ with a function $\FF{s}$ as follows:\vspace{0.5ex}\\
+\nicerbox{1}{
+Let $\f{t}$ be a function defined over $[0,\infty )$. Then:
+    \begin{equation}\label{eq:2.1}
+        \Laplace{\f{t}}=\intt{t=0}{\infty}\f{t}\e{-st}dt=\FF{s}
+    \end{equation}
+    \centering where $s$ is assumed to be $+ve$ and large to ensure interval converges. Also, $\mathcal{L}$ may be intepreted as an operator.
+}
+\subsection{Existence of Laplace Transform}
+\subsubsection{Exponential Order}
+A function $f$ is said to be of \textit{exponential} if exists a constant $K>0$ and $a\neq0$ such that:
+\begin{equation}
+    \modulus{\f{t}}\leq K\e{at},\quad\text{for all }t\geq t_0
+\end{equation}
+\subsubsection{Existence Theorem}
+A Laplace transform $\Laplace{\f{t}}=\FF{s}$ defined by (\ref{eq:2.1}), exists for $s>a$ if:
+\begin{enumerate}
+    \item $\f{t}$ is piecewise continuous on interval $0\leq t\leq t_0$ for any positive $t_0$.
+    \item $\f{t}$ is of exponential order.
+\end{enumerate}
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{2.2}
+    \caption{Elementary Laplace Transforms}
+    \label{table:2.1}
+    \begin{tabular}{|c|c|c|c|}\hline
+       Num.&$\f{t}$&$\Laplace{\f{t}}=\FF{s}$& Condition on $s$\\\hline
+       1.&$a$&$\displaystyle\frac{a}{s}$&$s>0$\\
+       2.&$t^n,\quad n=0,1,2,...$&$\displaystyle\frac{n!}{s^{n+1}}$&$s>0$\\
+       3.&$e^{at}$&$\displaystyle\frac{1}{s-a}$&$s>a$\\
+       4.&$\sinn{at}$&$\displaystyle\frac{a}{s^2+a^2}$&$s>0$\\
+       5.&$\coss{at}$&$\displaystyle\frac{s}{s^2+a^2}$&$s>0$\\
+       6.&$\sinh{\bracket{at}}$&$\displaystyle\frac{a}{s^2-a^2}$&$s>\modulus{a}$\\
+       7.&$\cosh{\bracket{at}}$&$\displaystyle\frac{s}{s^2-a^2}$&$s>\modulus{a}$\\\hline
+    \end{tabular}
+\end{table}
+\subsection{Properties of Laplace Transforms}
+\subsubsection{Linearity}
+Laplace transform is a \textit{linear transformation} which means it satisfy the following properties:\vspace{0.5ex}\\
+\nicerbox{1}{
+    If $\Laplace{\f{t}}$ and $\Laplace{\g{t}}$ exists, and if $\alpha$ and $\beta$ are constants, then:
+    \begin{equation}
+        \Laplace{\alpha\f{t}+\beta\g{t}}=\alpha\Laplace{\f{t}}+\beta\Laplace{\g{t}}
+    \end{equation}
+}
+Notice that the transforms \textbf{cannot be multiplied together.} For that, we will need to use \textit{convolution} of two expressions.\vspace{-0.5ex}
+\subsubsection{First Shift Theorem}
+Used to find Laplace transforms of functions multiplied by an exponential factor.\vspace{0.5ex}\\
+\nicerbox{1}{
+    If $\Laplace{\f{t}}=\FF{s}$ and $a$ is a constant, then:
+    \begin{equation}
+        \Laplace{\e{at}\cdot\f{t}}=\FF{s-a}
+    \end{equation}
+}
+\subsubsection{Differentiation of a Transform}
+Relates operations in $t$ domain to those in transformed $s$ domain. It is known as \textit{differentiation of a transform} or sometimes known as \textit{multiplication by $t$ property}.\vspace{0.5ex}\\
+\nicerbox{1}{
+    If $\Laplace{\f{t}}=\FF{s}$, then for $n=1,2,3,...$
+    \begin{equation}
+        \Laplace{t^n\cdot\f{t}}=\bracket{-1}^n\frac{d^n}{ds^n}\sbracket{\FF{s}}
+    \end{equation}
+}
+\subsubsection{Integration of a Transform}
+It is known as \textit{integration of a transform} or sometimes known as \textit{division by $t$ property}.\vspace{0.5ex}\\
+\nicerbox{1}{
+    If $\Laplace{\f{t}}=\FF{s}$ and $\lim\limits_{t\to 0}\frac{\f{t}}{t}$ exists, then:
+    \begin{equation}
+        \Laplace{\frac{\f{t}}{t}}=\intt{s}{\infty}\FF{s}ds
+    \end{equation}
+}
+\subsubsection{Laplace Transform of an Integral}
+\nicerbox{1}{
+    If $\Laplace{\f{t}}=\FF{s}$, then:
+    \begin{equation}
+        \Laplace{\intt{0}{t}\f{u}du}=\frac{\FF{s}}{s}
+    \end{equation}
+}
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{2.4}
+    \caption{First Shift Theorem, Differentiation \& Integration of Laplace Transforms and Laplace Transform of an Integral}
+    \label{table:2.2}
+    \begin{tabular}{|c|c|c|}\hline
+       Num.&$\f{t}$&$\Laplace{\f{t}}=\FF{s}$\\\hline
+       1.&$\e{at}\cdot\f{t}$&$\FF{s-a}$\\
+       2.&$t^n\cdot\f{t}$&$\displaystyle\bracket{-1}^n\frac{d^n}{ds^n}\sbracket{\FF{s}}$\\
+       3.&$\displaystyle\frac{\f{t}}{t}$&$\displaystyle\intt{s}{\infty}\FF{s}ds$\\
+       4.&$\displaystyle\intt{0}{t}\f{u}du$&$\displaystyle\frac{\FF{s}}{s}$\\\hline
+    \end{tabular}
+\end{table}
+\subsection{Inverse Laplace Transform}
+\nicerbox{1}{
+    If $\Laplace{\f{t}}=\FF{s}$, then $\f{t}$ is called inverse Laplace transform of $\FF{s}$ and is written as:
+    \begin{equation}
+        \iLaplace{\FF{s}}=\f{t}
+    \end{equation}
+    The operator $\mathcal{L}^{-1}$ is known as the operator of inverse Laplace transform. Also, $\mathcal{L}^{-1}\neq\frac{1}{\mathcal{L}}$.
+}
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{2.2}
+    \caption{Inverse Laplace Transforms}
+    \label{table:2.3}
+    \begin{tabular}{|c|c|c|}\hline
+       Num.&$\FF{s}$&$\iLaplace{\FF{s}}=\f{t}$\\\hline
+       1.&$\displaystyle\frac{a}{s}$&$a$\\
+       2.&$\displaystyle\frac{n!}{s^{n+1}}$&$t^n,\quad n=0,1,2,...$\\
+       3.&$\displaystyle\frac{1}{s-a}$&$e^{at}$\\
+       4.&$\displaystyle\frac{a}{s^2+a^2}$&$\sinn{at}$\\
+       5.&$\displaystyle\frac{s}{s^2+a^2}$&$\coss{at}$\\
+       6.&$\displaystyle\frac{a}{s^2-a^2}$&$\sinh{\bracket{at}}$\\
+       7.&$\displaystyle\frac{s}{s^2-a^2}$&$\cosh{\bracket{at}}$\\\hline
+    \end{tabular}
+\end{table}
+\subsection{Properties of Inverse Laplace Transforms}
+\subsubsection{Linearity}
+This property is valid for $n$ terms.\vspace{0.5ex}\\
+\nicerbox{1}{
+    If $\iLaplace{\FF{s}}=\f{t}$ and $\iLaplace{\G{s}}=\g{t}$, and if $\alpha$ and $\beta$ are constants then:
+    \begin{equation}
+        \iLaplace{\alpha\FF{s}+\beta\G{s}}=\alpha\iLaplace{\FF{s}}+\beta\iLaplace{\G{s}}=\alpha\f{t}+\beta\g{t}
+    \end{equation}
+}
+\subsubsection{First Shift Property}
+\nicerbox{1}{
+    If $\iLaplace{\FF{s}}=\f{t}$ and $a$ is a constant, then:
+    \begin{equation}
+        \iLaplace{\FF{s-a}}=\e{at}\iLaplace{\FF{s}}=\e{at}\f{t}
+    \end{equation}
+}
+\subsubsection{Second Shift Property}
+\nicerbox{1}{
+    If $\iLaplace{\FF{s}}=\f{t}$ and $a$ is a constant, then:
+    \begin{equation}
+        \iLaplace{\e{-as}\FF{s}}=\f{t-a}H\bracket{t-a}
+    \end{equation}
+    \centering where $H\bracket{t}=$unit step function
+}
+\subsubsection{Differentiation of a Transform}
+\nicerbox{1}{
+    If $\iLaplace{\FF{s}}=\f{t}$, then:
+    \begin{equation}
+        \iLaplace{\FF{s}}=-\frac{1}{t}\iLaplace{\frac{d}{ds}\sbracket{\FF{s}}}
+    \end{equation}
+}
+\subsubsection{Integration of a Transform}
+\nicerbox{1}{
+    If $\iLaplace{\FF{s}}=\f{t}$, then:
+    \begin{equation}
+        \iLaplace{\FF{s}}=t\cdot\iLaplace{\intt{s}{\infty}\FF{s}ds}
+    \end{equation}
+}
+\subsection{Partial Fractions}
+Consider the expression of the form:
+\begin{equation}
+    \frac{N\bracket{s}}{D\bracket{s}}
+\end{equation}
+where $N\bracket{s}$ and $D\bracket{s}$ are polynomials in degree $s$ and degree of $D\bracket{s}>N\bracket{s}$.
+\subsubsection{General Rules for Partial Fraction}
+\nicerbox{1}{
+\begin{enumerate}
+    \item The degree of $D\bracket{s}$ must be greater than the degree of $N\bracket{s}$. If not, long division.
+    \item  For each linear factor $\bracket{s+a}$ in the denominator, assume there to be a partial fraction of the form $\displaystyle\frac{A}{s+a}$ where $A$ is a constant.
+    \item For each repeated linear factor $\bracket{s+a}^n$ in the denominator, assume there to be $n$ partial fractions of the form:
+    \begin{equation*}
+        \frac{A_1}{s+a}+\frac{A_2}{\bracket{s+a}^2}+\frac{A_3}{\bracket{s+a}^3}+...+\frac{A_n}{\bracket{s+a}^n}
+    \end{equation*}
+    \item For each irreducible quadratic factor $\bracket{s^2+ps+q}$ in the denominator, assume there to be partial fraction of the form $\displaystyle\frac{Ps+Q}{s^2+ps+q}$ where $P$ and $Q$ are constants.
+    \item For each irreducible factor $\bracket{s^2+ps+q}^n$, assume there to be $n$ partial fractions of the form:
+    \begin{equation*}
+        \frac{P_1s+Q_2}{s^2+ps+q}+\frac{P_2s+Q_2}{\bracket{s^2+ps+q}^2}+...+\frac{P_ns+Q_n}{\bracket{s^2+ps+q}^n}
+    \end{equation*}
+\end{enumerate}
+}
+\subsubsection{Cover Up Rule}
+A shortcut method to determine the value of constants $A_1,A_2,A_3,...$ . Can only be used if the \textit{denominator} is a \textit{product of linear factors}.
+\begin{align}
+    \FF{s}&=\frac{s+17}{\bracket{s-1}\bracket{s+2}\bracket{s-3}}\equiv\frac{A}{s-1}+\frac{B}{s+2}+\frac{C}{s-3}\nonumber\\
+    A&=\lim\limits_{s\to1}\frac{s+17}{\bracket{s+2}\bracket{s-3}}=-3,\quad B=\lim\limits_{s\to-2}\frac{s+17}{\bracket{s-1}\bracket{s-3}}=1\nonumber\\   
+    C&=\lim\limits_{s\to3}\frac{s+17}{\bracket{s-1}\bracket{s+2}}=2\nonumber
+\end{align}
+For situations like the following, cover up rule can still be useful:
+\begin{equation}
+    \frac{2x+1}{\bracket{x-1}^2\bracket{x-2}^2}=\frac{A}{x-1}+\frac{3}{\bracket{x-1}^2}+\frac{B}{x-2}+\frac{5}{\bracket{x-2}^2}
+\end{equation}
+\subsubsection{Useful Techniques}
+\subsubsection*{Situation 1}
+For situations of the form $\frac{s}{\bracket{s-a}^2+q}$, manipulate algebraically then apply \textit{first shift theorem}:
+\begin{equation}
+    \frac{s}{\bracket{s-a}^2+3}=\frac{\bracket{s-a}+a}{\bracket{s-a}^2+3}=\frac{\bracket{s-a}}{\bracket{s-a}^2+3}+\frac{a}{\bracket{s-a}^2+3}
+\end{equation}
+\subsubsection*{Situation 2}
+For situations with $\frac{1}{s^2}$ in denominator, detach then apply \textit{cover up rule} on the inner bracket: 
+\begin{equation}
+    \frac{4}{s^2\bracket{s+2}\bracket{s+3}}=\frac{1}{s}\cbracket{\frac{4}{s\bracket{s+2}\bracket{s+3}}}
+\end{equation}
+Next, apply \textit{cover up rule} on the inner bracket.
+\begin{equation*}
+    \frac{1}{s}\cbracket{\frac{A}{s}+\frac{B}{s+2}+\frac{C}{s+3}}=\frac{1}{s}\cbracket{\frac{4}{6}\cdot\frac{1}{s}-\frac{2}{s+2}+\frac{4}{3}\cdot\frac{1}{s+3}}
+\end{equation*}
+Then, multiply $\frac{1}{s}$ back into the inner bracket. Further simplify any remaining fraction into partial fractions:
+\begin{equation*}
+    \frac{2}{3}\cdot\frac{1}{s^2}-\frac{2}{s\bracket{s+2}}+\frac{4}{3}\cdot\frac{1}{s\bracket{s+3}}
+\end{equation*}
+\subsection{Convolution Theorem}
+For the following product, We wish to determine $\iLaplace{\FF{s}\G{s}}$:
+\begin{equation}
+    \FF{s}\G{s},\quad\text{with inverses:}\quad\iLaplace{\FF{s}}=\f{t}\quad\text{and}\quad\iLaplace{\G{s}}=\g{t}
+\end{equation}
+\nicerbox{1}{
+If $\iLaplace{\FF{s}}=\f{t}$ and $\iLaplace{\G{s}}=\g{t}$:
+\begin{equation}
+    \iLaplace{\FF{s}\G{s}}=\intt{0}{t}\f{u}\g{t-u}du
+\end{equation}
+}
+Given the expression:
+\begin{equation*}
+    \frac{1}{\bracket{s+1}\bracket{s-2}}=\frac{1}{s+1}\cdot\frac{1}{s-2}
+\end{equation*}
+We choose:
+\begin{align*}
+    \FF{s}=\frac{1}{s+1}\quad\text{and}\quad\G{s}=\frac{1}{s-2}
+\end{align*}
+From which:
+\begin{align*}
+    \f{t}&=\e{-t}\quad\text{and}\quad\g{t}=\e{2t}\\
+    \f{u}&=\e{-u}\quad\text{and}\quad\g{t-u}=\e{2\bracket{t-u}}
+\end{align*}
+Hence:
+\begin{equation*}
+    \iLaplace{\frac{1}{\bracket{s+1}\bracket{s-2}}}=\intt{0}{t}\e{-u}\cdot\e{2\bracket{t-u}}du=\frac{1}{3}\bracket{\e{2t}-\e{-t}}
+\end{equation*}
+\subsection{Solutions of DE by Laplace Transforms}
+Laplace transform is an effective method to solve ODE, especially nonhomogeneous equations with input function in the form of step or delta function.
+\subsubsection{Transforms of Derivatives}
+\nicerbox{1}{
+    \begin{align}
+        \text{if}\quad\Laplace{\y{t}}&=\Y{s},\text{ then}\nonumber\\
+        \Laplace{y'\bracket{t}}&=s\Y{s}-\y{0}\nonumber\\
+        \Laplace{y''\bracket{t}}&=s^2\Y{s}-s\y{0}-y'\bracket{0}\nonumber\\
+        \Laplace{y'''\bracket{t}}&=s^3\Y{s}-s^2\y{0}-sy'\bracket{0}-y''\bracket{0}\nonumber\\
+        \vdots\nonumber\\
+        \Laplace{y^{\bracket{n}}\bracket{t}}&=s^n\Y{s}-s^{n-1}\y{0}-s^{n-2}y'\bracket{0}-...-y^{n-1}\bracket{0}.
+    \end{align}
+}
+\subsubsection{Initial Value Problem}
+\subsubsection*{A) Linear DE of First Order}
+Given initial value problem of ODE first order:
+\begin{align}
+    ay'+by=\f{t},\quad\y{0}=y_0,\\
+    \text{where }a,b\text{ and }y_0\text{ are constants}\nonumber
+\end{align}
+Taking its Laplace transform:
+\begin{equation}
+    a\Laplace{y'}+b\Laplace{y}=\Laplace{\f{t}}.
+\end{equation}
+Using the theorem previously:
+\begin{align*}
+    a\sbracket{s\Y{s}-\y{0}}+b\Y{s}&=\FF{s}\\
+    \bracket{as+b}\Y{s}-ay_0&=\FF{s}
+\end{align*}
+Obtain an algebraic equation in $s$. Thus:
+\begin{equation}
+    \Y{s}=\frac{\FF{s}+ay_0}{as+b}
+\end{equation}
+Finally, perform inverse Laplace transform to obtain the solution in $t$:
+\begin{equation}
+    \y{t}=\iLaplace{\Y{s}=\frac{\FF{s}+ay_0}{as+b}}
+\end{equation}
+\subsubsection*{B) Linear DE of Second Order}
+Given initial value problem of ODE second order:
+\begin{align}
+    ay''+&by+cy=\f{t},\quad\y{0}=y_0\quad\text{and}\quad y'\bracket{0}=y_1\\
+    &\text{where }a,b,c,y_0\text{ and }y_1\text{ are constants}\nonumber
+\end{align}
+Taking its Laplace transform:
+\begin{equation}
+    a\Laplace{y''}+b\Laplace{y'}+c\Laplace{y}=\Laplace{\f{t}}.
+\end{equation}
+Using the theorem previously:
+\begin{align*}
+    a\sbracket{s^2\Y{s}-s\y{0}-y'\bracket{0}}+b\sbracket{s\Y{s}-y\bracket{0}}+c\Y{s}&=\FF{s}\\
+    \bracket{as^2+bs+c}\Y{s}-\bracket{as+b}y_0-ay_1&=\FF{s}
+\end{align*}
+Obtain an algebraic equation in $s$. Thus:
+\begin{equation}
+    \Y{s}=\frac{\FF{s}+\bracket{as+b}y_0+ay_1}{as^2+bs+c}
+\end{equation}
+Finally, perform inverse Laplace transform to obtain the solution in $t$:
+\begin{equation}
+    \y{t}=\iLaplace{\frac{\FF{s}+\bracket{as+b}y_0+ay_1}{as^2+bs+c}}
+\end{equation}
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{2.2}
+    \caption{Summary of Linear DE of First and Second Order}
+    \label{table:2.4}
+    \begin{tabular}{|c|c|c|}\hline
+       Step&First Order&Second Order\\\hline
+       1.&$ay'+by=\f{t},\quad\y{0}=y_0,$&$ay''+by+cy=\f{t},\quad\y{0}=y_0,\ y'\bracket{0}=y_1$\\
+       2.&$\displaystyle\Y{s}=\frac{\FF{s}+ay_0}{as+b}$&$\Y{s}=\displaystyle\frac{\FF{s}+\bracket{as+b}y_0+ay_1}{as^2+bs+c}$\\
+       3.&$\displaystyle\y{t}=\iLaplace{\frac{\FF{s}+ay_0}{as+b}}$&$\displaystyle\y{t}=\iLaplace{\frac{\FF{s}+\bracket{as+b}y_0+ay_1}{as^2+bs+c}}$\\
+       4.&Solution $\y{t}$ is found&Solution $\y{t}$ is found\\\hline
+    \end{tabular}
+\end{table}
+\subsubsection{Boundary Value Problem}
+Approach is the same as for \textbf{Initial Value Problem}. However, since we do not have initial values such as $y\bracket{0}=1$ or $y'\bracket{0}=2$, rather we have $y\bracket{2}=\pi/2$ or $y'\bracket{5\pi}=4.2$. Therefore we set:
+\begin{equation}
+    \y{0}=\alpha,\quad y'\bracket{0}=\beta,\quad\ldots
+\end{equation}
+Then, solve the ODE as usual but using the constants defined previously:
+\begin{equation}
+    \y{t}=\bracket{\alpha+1}\e{t}-\e{2t}+t\e{2t}
+\end{equation}
+Finally, substitute the boundary values into equation to determine value of constants:
+\begin{equation}
+    \y{1}=2e=\bracket{\alpha+1}e\Rightarrow\alpha=1.
+\end{equation}
+\subsection{Systems of Differential Equations}
+\textbf{Simultaneous ODE} involve \textit{more than one dependent variable} such as $\x{t}$ and $\y{t}$. Therefore, Laplace transform is needed for each variable. The procedure then, is to solve the simultaneous equation for transformed variables $X\bracket{s}$ and $\Y{s}$. Finally, invert to recover each dependent variables $\x{t}$ and $\y{t}$.\\\\
+Given the following simultaneous equations:
+\begin{equation*}
+    \dif{x}{t}=y,\quad\dif{y}{t}=-x\quad\text{and}\quad\x{0}=1,\ \y{0}=2
+\end{equation*}
+Let $\Laplace{\x{t}}=\X{s}$ and $\Laplace{\y{t}}=\Y{s}$. Taking Laplace transform of both sides:
+\begin{align}
+    s\X{s}-\x{0}=\Y{s}\nonumber\\
+    s\Y{s}-\y{0}=-\X{s}
+\end{align}
+Apply initial conditions and rearranging:
+\begin{align}
+    s\X{s}-\Y{s}=1\tag{i}\\
+    s\Y{s}+\X{0}=2\tag{ii}
+\end{align}
+Solve for $\X{s}$ by $s\times(i)+(ii)$ and $\Y{s}$ by $s\times(ii)-(i)$:
+\begin{equation*}
+    \X{s}=\frac{s}{s^2+1}+\frac{2}{s^2+1}\quad\text{and}\quad\Y{s}=\frac{2s}{s^2+1}-\frac{1}{s^2+1}
+\end{equation*}
+Taking inverse Laplace transform, we obtain:
+\begin{align*}
+    \x{t}&=\coss{t}+2\sinn{t}\\
+    \y{t}&=2\coss{t}-\sinn{t}
+\end{align*}
+* Note: Alternatively, $\y{t}$ may also be solved by substituting $\x{t}$ into the first equation.
+\begin{equation}
+    \y{t}=\dif{x}{t}=\frac{d}{dt^2}\bracket{\x{t}=\coss{t}+2\sinn{t}}=-\sinn{t}+2\coss{2t}
+\end{equation}
+\newpage

@@ -1,0 +1,141 @@
+
+% Bracket
+\newcommand{\bracket}[1]{\left(#1\right)}
+
+% Curly bracket
+\newcommand{\cbracket}[1]{\left\{#1\right\}}
+
+% Square bracket
+\newcommand{\sbracket}[1]{\left[#1\right]}
+
+% Modulus
+\newcommand{\modulus}[1]{\left|#1\right|}
+
+% Operator call
+% \DeclareMathOperator{\xOperator}{x}
+% \DeclareMathOperator{\XOperator}{X}
+% \DeclareMathOperator{\yOperator}{y}
+% \DeclareMathOperator{\YOperator}{Y}
+% \DeclareMathOperator{\fOperator}{f}
+% \DeclareMathOperator{\FOperator}{F}
+% \DeclareMathOperator{\FourierOperator}{\mathcal{F}}
+% \DeclareMathOperator{\gOperator}{g}
+% \DeclareMathOperator{\GOperator}{\mathcal{G}}
+% \DeclareMathOperator{\LaplaceOperator}{\mathcal{L}}
+% \DeclareMathOperator{\iLaplaceOperator}{\mathcal{L}^{-1}}
+% \DeclareMathOperator{\sincOperator}{sinc}
+
+% Function, x(t)
+\newcommand{\x}[1]{x\bracket{#1}}
+
+% Function, X(t)
+\newcommand{\X}[1]{X\bracket{#1}}
+
+% Function, y(t)
+\newcommand{\y}[1]{y\bracket{#1}}
+
+% Function, Y(t)
+\newcommand{\Y}[1]{Y\bracket{#1}}
+
+% Function, F(x)
+\newcommand{\FF}[1]{F\bracket{#1}}
+
+% Function, f(t)
+\newcommand{\f}[1]{f\bracket{#1}}
+
+% Fourier, F(w)
+\newcommand{\F}[1]{\mathcal{F}\bracket{#1}}
+
+% Function, g(t)
+\newcommand{\g}[1]{g\bracket{#1}}
+
+% Fourier, G(w)
+\newcommand{\G}[1]{\mathcal{G}\bracket{#1}}
+
+% Laplace L(f(t))
+\newcommand{\Laplace}[1]{\mathcal{L}\cbracket{#1}}
+
+% Inverse Laplace L^-1(f(t))
+\newcommand{\iLaplace}[1]{\mathcal{L}^{-1}\cbracket{#1}}
+
+% Gamma function
+\newcommand{\Gammaa}[1]{\Gamma\bracket{#1}}
+
+% Beta function B(x)
+\newcommand{\Beta}[1]{\mathcal{B}\bracket{#1}}
+
+% Error function, erf(x)
+\newcommand{\erff}[1]{\erf\bracket{#1}}
+
+% Complementary error function, erfc(x)
+\DeclareMathOperator\erfc{erfc}
+\newcommand{\erfcc}[1]{\erfc\bracket{#1}}
+
+% Exponent, e
+\newcommand{\e}[1]{e^{#1}}
+
+% Sine
+\newcommand{\sinn}[1]{\sin\bracket{#1}}
+
+% Sine^n
+\newcommand{\sinnN}[2]{\sin^{#1}\bracket{#2}}
+
+% Cosine
+\newcommand{\coss}[1]{\cos\bracket{#1}}
+
+% cos^n
+\newcommand{\cossN}[2]{\cos^{#1}\bracket{#2}}
+
+% Sinc
+\newcommand{\sinc}[1]{\operatorname{sinc}\bracket{#1}}
+
+% Differentiate
+\newcommand{\dif}[2]{\frac{d{#1}}{d{#2}}}
+
+% Double Differentiate
+% \newcommand{\dif2}[2]{\frac{d^2{#1}}{d{#2}^2}}
+
+% Integrate
+\newcommand{\intt}[2]{\int_{#1}^{#2}}
+
+% Integrated
+\newcommand{\intted}[3]{\left.#1\right|_{#2}^{#3}}
+
+% Summation
+\newcommand{\summation}[2]{\sum_{#1}^{#2}}
+
+% Fourier
+\newcommand{\fourier}{\f{t}&=\frac{a_0}{2}+\sum_{n=1}^\infty\cbracket{a_n\coss{nwt}+b_n\sinn{nwt}}}
+
+% Rad s-1
+\newcommand{\rad}{\ \text{rad}\ s^{-1}}
+
+% Giant Text Box
+\newcommand{\textbox}[1]{
+\fbox{
+\parbox{0.473\textwidth}{
+\centering
+#1
+}
+}
+}
+
+% Nice Box
+\newcommand{\nicebox}[2]{
+\begin{center}
+    \fbox{
+    	\parbox{#1\linewidth}{#2}
+    }
+\end{center}
+}
+
+% Nicer Box
+\newcommand{\nicerbox}[2]{
+    \fbox{
+    	\parbox{#1\linewidth}{#2}
+    }\vspace{0.5ex}
+}
+
+\newenvironment{rcases}
+  {\left.\begin{aligned}}
+  {\end{aligned}\right\rbrace}

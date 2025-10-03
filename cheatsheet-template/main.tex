@@ -1,0 +1,24 @@
+\documentclass[12pt,letterpaper]{article}
+\input{preamble}
+\input{commands}
+\input{title}
+
+% Start of document
+\begin{document}
+% \pagecolor{gray}
+% Set page style
+\pagestyle{fancy}             % Set page style to "fancy"
+\input{custompagestyle}       % Use custom preset pagestyle
+
+\maketitle                    % Title Page
+\input{customtableofcontents} % Table of Contents
+
+% Chapters
+% \newpage
+\input{1Fourier}
+\input{2LaplaceTransform}
+\input{3SpecialFunctions}
+\input{4PowerSeries}
+% \input{5PartialDE}
+
+\end{document}
